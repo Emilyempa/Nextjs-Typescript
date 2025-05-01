@@ -1,8 +1,11 @@
+"use client";
 import Link from "next/link";
 import React from "react";
 import ThemeController from "./ThemeController";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
+  const pathname = usePathname();
   return (
     <header>
       <div className="navbar bg-base-100 shadow-sm">
@@ -30,28 +33,58 @@ const Header = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               <li>
-                <Link href="/" className="text-secondary">
+                <Link
+                  href="/"
+                  className={`${
+                    pathname === "/"
+                      ? "font-bold text-secondary"
+                      : "text-secondary"
+                  }`}
+                >
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/users" className="text-secondary">
+                <Link
+                  href="/users"
+                  className={`${
+                    pathname === "/users"
+                      ? "font-bold text-secondary"
+                      : "text-secondary"
+                  }`}
+                >
                   Users
                 </Link>
               </li>
             </ul>
           </div>
-          <Link href="/" className="btn btn-ghost text-xl">NEXT App</Link>
+          <Link href="/" className="btn btn-ghost text-xl">
+            NEXT App
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link href="/" className="text-secondary">
+              <Link
+                href="/"
+                className={`${
+                  pathname === "/"
+                    ? "font-bold text-secondary"
+                    : "text-secondary"
+                }`}
+              >
                 Home
               </Link>
             </li>
             <li>
-              <Link href="/users" className="text-secondary">
+              <Link
+                href="/users"
+                className={`${
+                  pathname === "/users"
+                    ? "font-bold text-secondary"
+                    : "text-secondary"
+                }`}
+              >
                 Users
               </Link>
             </li>
