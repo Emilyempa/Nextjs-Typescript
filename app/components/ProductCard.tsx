@@ -2,12 +2,17 @@ import React from 'react'
 import AddToCart from './AddToCart'
 
 
-const ProductCard = () => {
+interface ProductCardProps {
+  title: string;
+  description: string;
+}
+
+const ProductCard: React.FC<ProductCardProps> = ({ title, description }) => {
   return (
     <div className="card bg-secondary w-96 shadow-md p-1 m-3">
       <div className="card-body">
-      <h2 className="card-title">Product Name</h2>
-      <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+      <h2 className="card-title">{title}</h2>
+      <p>{ description }</p>
         <AddToCart />
         </div>
     </div>
